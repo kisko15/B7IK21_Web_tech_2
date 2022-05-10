@@ -1,0 +1,19 @@
+mat-card {
+  margin: 2em auto;
+  text-align: center;
+  display: flex;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+.right-align {
+    text-align: right;
+}
+
+input.right-align::-webkit-outer-spin-button,
+input.right-align::-webkit-inner-spin-button {
+  display: none;
+}

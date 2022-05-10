@@ -1,0 +1,51 @@
+<mat-card>
+    <mat-card-content>
+        <div class="header">
+            <h2>REGISZTRÁCIÓ</h2>
+        </div>
+        <form (ngSubmit)="onRegister()" name="loginForm" [formGroup]="registerForm">
+            <div class="input">
+                <mat-form-field appearance="outline">
+                    <mat-label>Név</mat-label>
+                    <input formControlName="name" matInput />
+                    <mat-error *ngIf="name!.invalid">
+                        {{getErrorMessageName(name)}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input">
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input formControlName="email" matInput required />
+                    <mat-error *ngIf="email!.invalid">
+                        {{getErrorMessageEmail(email)}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input">
+                <mat-form-field appearance="outline">
+                    <mat-label>Telefonszám</mat-label>
+                    <input formControlName="phone_number" matInput required />
+                    <mat-error *ngIf="phone_number!.invalid">
+                        {{getErrorMessagePhoneNumber(phone_number)}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Jelszó</mat-label>
+                    <input formControlName="password" matInput [type]="hide ? 'password' : 'text'" required />
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.maria-label]="'Hide password'"
+                        [attr.maria-pressed]="'hide'">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                    <mat-error *ngIf="password!.invalid">
+                        {{getErrorMessagePassword(password)}}
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <button mat-flat-button color="primary">Regisztráció</button>
+            <a routerLink="/login" class="aLink">Már regisztrált?</a>
+        </form>
+    </mat-card-content>
+</mat-card>

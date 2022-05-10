@@ -1,0 +1,26 @@
+mat-card {
+    margin: 2em auto;
+    text-align: center;
+    display: flex;
+}
+
+.header {
+    text-align: center;
+}
+
+.mat-form-field {
+    width: 100%;
+    min-width: 300px;
+}
+
+.forgot-password {
+    padding-left: 0px;
+}
+
+.input {
+    padding-top: 2px;
+}
+
+.aLink {
+    padding-left: 90px;
+}

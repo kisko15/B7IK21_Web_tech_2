@@ -1,0 +1,33 @@
+<mat-toolbar color="basic" *ngIf="isLoggedIn$ | async as isLoggedIn">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+        </button>
+        <div (click)="sidenav.close()">
+            <a mat-button [routerLink]="'/'"> Kezdőlap </a>
+            <a mat-button [routerLink]="'/products-list'"> Termékek </a>
+            <a mat-button [routerLink]="'/add-products'"> Új termék </a>
+        </div>
+        <span class="item-spacer"></span>
+        <div>
+            <button type="submit" mat-icon-button>
+                <mat-icon (click)="logout()" *ngIf="isLoggedIn">logout</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container class="example-container" autosize (click)="sidenav.close()">
+    <mat-sidenav #sidenav class="example-sidenav" mode="side">
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="'/'"> Kezdőlap </a>
+            <a mat-list-item [routerLink]="'/products-list'"> Termékek </a>
+            <a mat-list-item [routerLink]="'/add-products'"> Új termék </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content autosize (click)="sidenav.close()">
+        <div class="example-sidenav-content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
